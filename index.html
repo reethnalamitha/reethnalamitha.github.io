@@ -4,18 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO Meta Tags -->
   <title>Reeth Nalamitha | Biomedical Engineer | Medical AI & Imaging</title>
-  <meta name="description" content="Reeth Nalamitha is a Biomedical Engineer specializing in medical imaging, deep learning, medical data science, and AI-driven healthcare solutions." />
-  <meta name="keywords" content="Reeth, Reeth Nalamitha, Biomedical Engineer, Medical Imaging, Medical AI, Medical Data Scientist, Deep Learning Healthcare" />
+  <meta name="description" content="Reeth Nalamitha – Biomedical Engineer specializing in Medical AI, Imaging, Deep Learning, and Healthcare Innovation." />
+  <meta name="keywords" content="Reeth, Reeth Nalamitha, Biomedical Engineer, Medical AI, Medical Imaging, Healthcare Data Scientist" />
   <meta name="author" content="Reeth Nalamitha" />
 
-  <!-- Open Graph / LinkedIn -->
   <meta property="og:title" content="Reeth Nalamitha | Biomedical Engineer" />
-  <meta property="og:description" content="Biomedical Engineer working in medical imaging, deep learning, and healthcare AI." />
+  <meta property="og:description" content="Medical AI, Imaging, and Biomedical Engineering professional portfolio." />
   <meta property="og:type" content="website" />
 
-  <!-- Structured Data for Google -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -23,114 +20,206 @@
     "name": "Reeth Nalamitha",
     "jobTitle": "Biomedical Engineer",
     "url": "https://reethnalamitha.github.io",
-    "sameAs": [
-      "https://www.linkedin.com/in/reeth-nalamitha"
-    ],
-    "knowsAbout": ["Medical Imaging", "Deep Learning", "Medical AI", "Biomedical Engineering"]
+    "sameAs": ["https://www.linkedin.com/in/reeth-nalamitha"],
+    "knowsAbout": ["Medical Imaging", "Medical AI", "Deep Learning", "Healthcare Data Science"]
   }
   </script>
 
   <style>
+    :root {
+      --primary: #1d4ed8;
+      --dark: #020617;
+      --light: #f8fafc;
+      --card: #ffffff;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background: #f9fafb;
-      color: #111827;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(180deg, #f8fafc, #eef2ff);
+      color: var(--dark);
+      transition: background 0.4s, color 0.4s;
     }
+
+    body.dark {
+      background: linear-gradient(180deg, #020617, #020617);
+      color: #e5e7eb;
+    }
+
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 70px 24px;
     }
+
+    header {
+      text-align: center;
+      margin-bottom: 90px;
+      animation: fadeIn 1.2s ease;
+    }
+
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 5px;
+      font-size: 3.2rem;
+      margin-bottom: 12px;
     }
-    h2 {
-      margin-top: 40px;
-      color: #2563eb;
-    }
-    p {
-      line-height: 1.6;
-    }
+
     .tagline {
-      font-size: 1.1rem;
-      color: #374151;
+      font-size: 1.3rem;
+      opacity: 0.85;
     }
-    ul {
-      padding-left: 20px;
+
+    .cta {
+      margin-top: 25px;
     }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      margin: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    section {
+      margin-bottom: 70px;
+      background: var(--card);
+      padding: 50px;
+      border-radius: 22px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+      animation: reveal 1s ease forwards;
+    }
+
+    body.dark section {
+      background: #020617;
+      border: 1px solid #1e293b;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #eef2ff;
+      padding: 24px;
+      border-radius: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover { transform: translateY(-6px); }
+
+    body.dark .card { background: #020617; border: 1px solid #1e293b; }
+
+    .timeline {
+      border-left: 3px solid var(--primary);
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      margin-bottom: 30px;
+    }
+
     footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #6b7280;
+      text-align: center;
+      opacity: 0.7;
+      margin-top: 90px;
     }
-    a {
-      color: #2563eb;
-      text-decoration: none;
+
+    .toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-weight: 600;
     }
-    a:hover {
-      text-decoration: underline;
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+  <div class="toggle" onclick="document.body.classList.toggle('dark')">🌙 Dark Mode</div>
+
   <div class="container">
     <header>
       <h1>Reeth Nalamitha</h1>
-      <p class="tagline">Biomedical Engineer | Medical Imaging • Deep Learning • Healthcare AI</p>
-      <p>Bengaluru, India · <a href="mailto:reethnalamitha@gmail.com">reethnalamitha@gmail.com</a></p>
-      <p><a href="https://www.linkedin.com/in/reeth-nalamitha">LinkedIn Profile</a></p>
+      <p class="tagline">Biomedical Engineer · Medical AI · Imaging · Deep Learning</p>
+      <div class="cta">
+        <a class="btn" href="mailto:reethnalamitha@gmail.com">Hire Me</a>
+        <a class="btn secondary" href="Jobs(CV-Reeth).pdf" download>Download CV</a>
+      </div>
     </header>
 
     <section>
-      <h2>About Me</h2>
-      <p>
-        I am a Biomedical Engineer with strong experience in medical imaging, deep learning,
-        and medical data analysis. My work focuses on applying AI, predictive modeling, and
-        machine learning to solve real-world healthcare and clinical challenges.
-      </p>
+      <h2>Professional Summary</h2>
+      <p>Biomedical Engineer with strong research and industry exposure in medical imaging, AI-driven diagnostics, and healthcare innovation. Experienced in translating academic research into deployable, clinically validated solutions.</p>
     </section>
 
     <section>
-      <h2>Expertise</h2>
+      <h2>Core Expertise</h2>
+      <div class="grid">
+        <div class="card">Medical Image Analysis & Registration</div>
+        <div class="card">Deep Learning (PyTorch, MONAI, TensorFlow)</div>
+        <div class="card">Healthcare AI & Data Science</div>
+        <div class="card">Biomedical Signal Processing</div>
+        <div class="card">IoT Medical Systems</div>
+        <div class="card">Clinical Research & Validation</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>Graduate Researcher – Universitätsklinikum Mannheim</strong>
+          <p>Developed multistep neural networks for deformable 3D medical image registration, achieving 91.91% DICE and 50% faster computation.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>Research Intern – RV College of Engineering & CISCO</strong>
+          <p>Built IoT-based respiratory health monitoring system with 94% diagnostic accuracy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Publications & Innovation</h2>
       <ul>
-        <li>Medical Image Analysis & Registration (CT, MR)</li>
-        <li>Deep Learning (PyTorch, TensorFlow, MONAI)</li>
-        <li>Medical Data Science & Signal Processing</li>
-        <li>AI for Clinical & Healthcare Applications</li>
+        <li>Springer & Journal of Physics publications in Biomedical Engineering</li>
+        <li>Book chapter on Machine Learning & IoT for OSA</li>
+        <li>Published Patent: Early Detection of Diabetic Foot Ulcer</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Experience Highlight</h2>
-      <p>
-        <strong>Graduate Researcher – Universitätsklinikum Mannheim</strong><br />
-        Developed a multistep neural network for deformable 3D medical image registration,
-        achieving a DICE score of 91.91% and reducing computation time by 50%.
-      </p>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <p>
-        <strong>M.Sc. Biomedical Engineering</strong> – Heidelberg University, Germany<br />
-        <strong>B.E. Medical Electronics</strong> – Dayananda Sagar College of Engineering, India
-      </p>
-    </section>
-
-    <section>
-      <h2>Publications & Research</h2>
-      <p>
-        Author of peer-reviewed publications and book chapters in biomedical engineering,
-        medical AI, and IoT-based healthcare systems, including Springer and Journal of Physics proceedings.
-      </p>
-    </section>
-
     <footer>
-      <p>
-        © 2026 Reeth Nalamitha · Biomedical Engineer · Medical AI & Imaging
-      </p>
+      © 2026 Reeth Nalamitha · Open to Research & Industry Roles
     </footer>
   </div>
 </body>
