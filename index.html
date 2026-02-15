@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Reeth Nalamitha | Biomedical Engineer | Medical AI & Imaging</title>
-  <meta name="description" content="Reeth Nalamitha – Biomedical Engineer specializing in Medical AI, Imaging, Deep Learning, and Healthcare Innovation." />
-  <meta name="keywords" content="Reeth, Reeth Nalamitha, Biomedical Engineer, Medical AI, Medical Imaging, Healthcare Data Scientist" />
+  <meta name="description" content="Reeth Nalamitha – Biomedical Engineer specializing in Medical AI, EEG Signal Processing, Medical Imaging, and Healthcare Innovation." />
+  <meta name="keywords" content="Reeth, Reeth Nalamitha, Biomedical Engineer, Medical AI, Medical Imaging, EEG, Signal Processing, Healthcare Data Scientist" />
   <meta name="author" content="Reeth Nalamitha" />
 
   <meta property="og:title" content="Reeth Nalamitha | Biomedical Engineer" />
-  <meta property="og:description" content="Medical AI, Imaging, and Biomedical Engineering professional portfolio." />
+  <meta property="og:description" content="Medical AI, Imaging, EEG Signal Processing, and Biomedical Engineering professional portfolio." />
   <meta property="og:type" content="website" />
 
   <script type="application/ld+json">
@@ -18,209 +18,853 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Reeth Nalamitha",
-    "jobTitle": "Biomedical Engineer",
+    "jobTitle": "EEG R&D Engineer",
     "url": "https://reethnalamitha.github.io",
     "sameAs": ["https://www.linkedin.com/in/reeth-nalamitha"],
-    "knowsAbout": ["Medical Imaging", "Medical AI", "Deep Learning", "Healthcare Data Science"]
+    "knowsAbout": ["Medical Imaging", "Medical AI", "Deep Learning", "EEG Signal Processing", "Healthcare Data Science"]
   }
   </script>
 
   <style>
     :root {
-      --primary: #1d4ed8;
-      --dark: #020617;
+      --primary: #2563eb;
+      --secondary: #06b6d4;
+      --accent: #8b5cf6;
+      --dark: #0f172a;
       --light: #f8fafc;
       --card: #ffffff;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      background: linear-gradient(180deg, #f8fafc, #eef2ff);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #f8fafc, #e0e7ff);
       color: var(--dark);
-      transition: background 0.4s, color 0.4s;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     body.dark {
-      background: linear-gradient(180deg, #020617, #020617);
+      background: linear-gradient(180deg, #0f172a, #1e1b4b);
       color: #e5e7eb;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 24px;
+    /* Animated background particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.3;
     }
 
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 24px;
+    }
+
+    /* Header with scan line effect */
     header {
       text-align: center;
-      margin-bottom: 90px;
-      animation: fadeIn 1.2s ease;
+      margin-bottom: 80px;
+      position: relative;
+      animation: fadeInDown 1s ease;
+    }
+
+    .scan-line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      animation: scan 3s infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes scan {
+      0% { top: 0; }
+      100% { top: 100%; }
     }
 
     h1 {
-      font-size: 3.2rem;
-      margin-bottom: 12px;
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
     }
 
     .tagline {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       opacity: 0.85;
+      margin-bottom: 10px;
+    }
+
+    .location {
+      font-size: 1rem;
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent);
     }
 
     .cta {
-      margin-top: 25px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-block;
-      padding: 14px 26px;
-      border-radius: 14px;
+      padding: 14px 32px;
+      border-radius: 12px;
       background: var(--primary);
       color: white;
       font-weight: 600;
       margin: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
     }
 
     .btn.secondary {
       background: transparent;
       color: var(--primary);
       border: 2px solid var(--primary);
+      box-shadow: none;
+    }
+
+    body.dark .btn.secondary {
+      color: #60a5fa;
+      border-color: #60a5fa;
     }
 
     .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
     }
 
-    section {
-      margin-bottom: 70px;
-      background: var(--card);
-      padding: 50px;
-      border-radius: 22px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.08);
-      animation: reveal 1s ease forwards;
+    .btn.secondary:hover {
+      background: var(--primary);
+      color: white;
     }
+
+    /* Sections with imaging scan effect */
+    section {
+      margin-bottom: 60px;
+      background: var(--card);
+      padding: 45px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+      animation: imagingScan 3s infinite;
+    }
+
+    @keyframes imagingScan {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    section:nth-child(1) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.3s; }
+    section:nth-child(4) { animation-delay: 0.4s; }
+    section:nth-child(5) { animation-delay: 0.5s; }
+    section:nth-child(6) { animation-delay: 0.6s; }
 
     body.dark section {
-      background: #020617;
-      border: 1px solid #1e293b;
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid #334155;
+      backdrop-filter: blur(10px);
     }
 
     h2 {
       color: var(--primary);
-      margin-top: 0;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-left: 20px;
     }
 
-    .grid {
+    h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+      border-radius: 10px;
+    }
+
+    body.dark h2 {
+      color: #60a5fa;
+    }
+
+    /* Skills grid with hover effects */
+    .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
+      margin-top: 25px;
     }
 
-    .card {
-      background: #eef2ff;
-      padding: 24px;
-      border-radius: 16px;
-      transition: transform 0.3s ease;
+    .skill-category {
+      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+      padding: 20px;
+      border-radius: 14px;
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--primary);
     }
 
-    .card:hover { transform: translateY(-6px); }
+    .skill-category:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+    }
 
-    body.dark .card { background: #020617; border: 1px solid #1e293b; }
+    body.dark .skill-category {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.6));
+      border-left-color: #60a5fa;
+    }
 
+    .skill-category h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    body.dark .skill-category h3 {
+      color: #60a5fa;
+    }
+
+    .skill-category p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* Experience timeline with medical imaging theme */
     .timeline {
-      border-left: 3px solid var(--primary);
-      padding-left: 25px;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+      border-radius: 10px;
     }
 
     .timeline-item {
-      margin-bottom: 30px;
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 30px;
     }
 
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -49px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
+      background: var(--primary);
+      border: 3px solid var(--card);
+      border-radius: 50%;
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    .timeline-item h3 {
+      color: var(--dark);
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    body.dark .timeline-item h3 {
+      color: #e5e7eb;
+    }
+
+    .timeline-item .duration {
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item .company {
+      font-style: italic;
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+
+    .timeline-item ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    .timeline-item li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    /* Stats counter animation */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .stat-card {
+      background: var(--gradient-1);
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      color: white;
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-card:nth-child(2) { background: var(--gradient-2); }
+    .stat-card:nth-child(3) { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    .stat-card:nth-child(4) { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+
+    .stat-card:hover {
+      transform: translateY(-10px) rotateX(5deg);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      padding: 30px;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.1), transparent);
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover::after {
+      transform: scale(1.5);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    body.dark .project-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.7));
+    }
+
+    .project-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    body.dark .project-card h3 {
+      color: #60a5fa;
+    }
+
+    .project-card ul {
+      margin-left: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card li {
+      margin-bottom: 8px;
+    }
+
+    /* Publications section */
+    .publications-list {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .publications-list li {
+      padding: 15px;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, rgba(37, 99, 235, 0.05), transparent);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .publications-list li:hover {
+      background: linear-gradient(90deg, rgba(37, 99, 235, 0.1), transparent);
+      transform: translateX(10px);
+    }
+
+    body.dark .publications-list li {
+      background: linear-gradient(90deg, rgba(96, 165, 250, 0.1), transparent);
+      border-left-color: #60a5fa;
+    }
+
+    /* Education cards */
+    .education-grid {
+      display: grid;
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .education-card {
+      background: linear-gradient(135deg, #e0e7ff, #f5f3ff);
+      padding: 25px;
+      border-radius: 14px;
+      border-left: 5px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .education-card:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+    }
+
+    body.dark .education-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(88, 28, 135, 0.3));
+      border-left-color: #a78bfa;
+    }
+
+    .education-card h3 {
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+
+    body.dark .education-card h3 {
+      color: #a78bfa;
+    }
+
+    .education-card .university {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .education-card .duration {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    /* Dark mode toggle */
+    .toggle {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      background: var(--card);
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .toggle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    body.dark .toggle {
+      background: rgba(30, 41, 59, 0.9);
+      color: #e5e7eb;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       opacity: 0.7;
-      margin-top: 90px;
+      margin-top: 80px;
+      padding: 30px 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
     }
 
-    .toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      font-weight: 600;
+    body.dark footer {
+      border-top-color: rgba(255,255,255,0.1);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @keyframes reveal {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      .tagline { font-size: 1.1rem; }
+      section { padding: 30px 20px; }
+      .contact-info { flex-direction: column; gap: 10px; }
+      .stat-number { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
+  <!-- Animated background particles -->
+  <div class="particles" id="particles"></div>
+
   <div class="toggle" onclick="document.body.classList.toggle('dark')">🌙 Dark Mode</div>
 
   <div class="container">
     <header>
+      <div class="scan-line"></div>
       <h1>Reeth Nalamitha</h1>
-      <p class="tagline">Biomedical Engineer · Medical AI · Imaging · Deep Learning</p>
+      <p class="tagline">Biomedical Engineer · EEG Signal Processing · Medical AI · 3D Image Registration</p>
+      <p class="location">Bengaluru, India</p>
+      <div class="contact-info">
+        <span>📧 <a href="mailto:reethnalamitha@gmail.com">reethnalamitha@gmail.com</a></span>
+        <span>📱 +91 63647 47836</span>
+        <span>💼 <a href="https://www.linkedin.com/in/reeth-nalamitha" target="_blank">LinkedIn: Reeth Nalamitha</a></span>
+      </div>
       <div class="cta">
-        <a class="btn" href="mailto:reethnalamitha@gmail.com">Hire Me</a>
+        <a class="btn" href="mailto:reethnalamitha@gmail.com">Get in Touch</a>
         <a class="btn secondary" href="Jobs(CV-Reeth).pdf" download>Download CV</a>
       </div>
     </header>
 
+    <!-- Professional Summary -->
     <section>
-      <h2>Professional Summary</h2>
-      <p>Biomedical Engineer with strong research and industry exposure in medical imaging, AI-driven diagnostics, and healthcare innovation. Experienced in translating academic research into deployable, clinically validated solutions.</p>
+      <h2>🎯 Professional Summary</h2>
+      <p>Biomedical Engineer with experience in <strong>EEG data acquisition</strong>, <strong>medical imaging</strong>, and <strong>applied AI</strong>. Strong background in clinical data collection, <strong>signal validation</strong>, <strong>CT/MRI image analysis</strong>, and <strong>deep learning for healthcare applications</strong>. Seeking roles in <strong>Medical Imaging AI</strong>, Medical Data Science, or Clinical Research.</p>
     </section>
 
+    <!-- Key Stats -->
     <section>
-      <h2>Core Expertise</h2>
-      <div class="grid">
-        <div class="card">Medical Image Analysis & Registration</div>
-        <div class="card">Deep Learning (PyTorch, MONAI, TensorFlow)</div>
-        <div class="card">Healthcare AI & Data Science</div>
-        <div class="card">Biomedical Signal Processing</div>
-        <div class="card">IoT Medical Systems</div>
-        <div class="card">Clinical Research & Validation</div>
+      <h2>📊 Impact at a Glance</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">300+</div>
+          <div class="stat-label">EEG Recording Sessions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">91.91%</div>
+          <div class="stat-label">DICE Score Achieved</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50%</div>
+          <div class="stat-label">Computation Time Reduced</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Participants Analyzed</div>
+        </div>
       </div>
     </section>
 
+    <!-- Technical Skills -->
     <section>
-      <h2>Experience Timeline</h2>
+      <h2>🛠️ Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Programming</h3>
+          <p>Python, C++, C</p>
+        </div>
+        <div class="skill-category">
+          <h3>Medical AI & Imaging</h3>
+          <p>PyTorch, TensorFlow, Keras, MONAI, ITK, SimpleITK, 3D Slicer, DICOM, NIfTI</p>
+        </div>
+        <div class="skill-category">
+          <h3>Signal Processing</h3>
+          <p>EEG, ECG, PPG, Biomedical Signal Analysis, fMRI, MNE-Python</p>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Platforms</h3>
+          <p>MATLAB, MySQL, Arduino (UNO, MEGA), PyCUDA, Git</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+      <h2>💼 Work Experience</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <strong>Graduate Researcher – Universitätsklinikum Mannheim</strong>
-          <p>Developed multistep neural networks for deformable 3D medical image registration, achieving 91.91% DICE and 50% faster computation.</p>
+          <h3>EEG R&D Engineer</h3>
+          <div class="duration">June 2025 – Present</div>
+          <div class="company">Brainwave Science, India</div>
+          <ul>
+            <li>Developed <strong>end-to-end EEG signal processing pipelines in Python</strong> using MNE, including raw data parsing, preprocessing (filtering, artifact removal), power spectral density analysis, and time-frequency visualization across <strong>300+ recording sessions</strong></li>
+            <li>Improved preprocessing workflows achieving <strong>25% better artifact rejection consistency</strong> through optimized ICA and filtering techniques</li>
+            <li>Analyzed EEG data from <strong>200+ participants</strong> using frequency domain methods—computed alpha, beta, theta, and delta band power distributions to extract stress and cognitive load biomarkers</li>
+            <li>Conducted spectral analysis revealing <strong>18–22% average alpha power reduction in high-stress conditions</strong> among military personnel</li>
+            <li>Built visualization dashboards using <strong>Matplotlib</strong> for real-time signal quality monitoring, reducing post-processing overhead by <strong>30%</strong></li>
+            <li>Executed comprehensive testing and validation, implementing automated quality checks that reduced data rejection rates by <strong>15%</strong></li>
+          </ul>
         </div>
+
         <div class="timeline-item">
-          <strong>Research Intern – RV College of Engineering & CISCO</strong>
-          <p>Built IoT-based respiratory health monitoring system with 94% diagnostic accuracy.</p>
+          <h3>Graduate Researcher – Medical Imaging</h3>
+          <div class="duration">Nov 2022 – Sept 2023</div>
+          <div class="company">Universitätsklinikum Mannheim, Germany · Research Campus M2OLIE</div>
+          <ul>
+            <li>Developed a <strong>multistep neural network for deformable 3D medical image registration</strong>, training on 120 CT and MR abdominal scans</li>
+            <li>Generated synthetic training data using <strong>XCAT phantom and CycleGAN</strong>, improving model generalization</li>
+            <li>Designed and implemented a <strong>U-Net based registration architecture using PyTorch and MONAI</strong></li>
+            <li>Achieved <strong>91.91% DICE score</strong>, outperforming traditional registration methods</li>
+            <li><strong>Reduced computation time by 50%</strong>, streamlining treatment planning workflows</li>
+            <li>Optimized diagnostic workflows by automating deformable registration for radiation therapy planning</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Intern – Biomedical Signal Processing</h3>
+          <div class="duration">Aug 2020 – Mar 2021</div>
+          <div class="company">RV College of Engineering (with CISCO Pvt. Ltd.)</div>
+          <ul>
+            <li>Designed IoT-based respiratory health monitoring using ECG signals</li>
+            <li>Implemented SVM (RBF kernel) for Obstructive Sleep Apnea detection with <strong>94% accuracy</strong></li>
+            <li>Improved signal-to-noise ratio by <strong>12%</strong> through preprocessing techniques</li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- Projects -->
     <section>
-      <h2>Publications & Innovation</h2>
+      <h2>🚀 Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Early Detection of Diabetic Foot Ulcer</h3>
+          <ul>
+            <li>Designed a sensor array using pressure and temperature sensors for early inflammation detection</li>
+            <li>Analyzed PPG signals to extract vascular features</li>
+            <li>Achieved <strong>89% diagnostic accuracy</strong>, validated against hospital pedobarographs</li>
+            <li>🏆 <strong>Best Paper Award</strong> – ICDNABE 2021</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <h3>Automated Medication Dispenser</h3>
+          <ul>
+            <li>Developed a biometric-enabled automated pill dispenser for elderly patients</li>
+            <li>Successfully deployed for real-world use, managing 10+ daily medications per user</li>
+            <li>Published in Springer Conference Proceedings</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications & Patents -->
+    <section>
+      <h2>📚 Publications & Patents</h2>
+      <ul class="publications-list">
+        <li>🏆 <strong>Best Paper Award</strong> – <em>Early Detection of Diabetic Foot Ulcer</em>, ICDNABE 2021</li>
+        <li>📄 Springer Conference Publication – <em>Biometric Enabled Medication Dispenser using IoT</em></li>
+        <li>📖 Book Chapter – <em>Machine Learning and IoT Augmented Classification of OSA</em></li>
+        <li>⚖️ Indian Patent Published – <em>Early Detection of Diabetic Foot Ulcer</em> (Application No. 202241070012 A)</li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2>🎓 Education</h2>
+      <div class="education-grid">
+        <div class="education-card">
+          <h3>M.Sc. Biomedical Engineering</h3>
+          <div class="university">Heidelberg University, Germany</div>
+          <div class="duration">2021 – 2023</div>
+          <p>GPA: 2.3 (German grading scale)</p>
+        </div>
+
+        <div class="education-card">
+          <h3>B.E. Medical Electronics</h3>
+          <div class="university">Dayananda Sagar College of Engineering, India</div>
+          <div class="duration">2017 – 2021</div>
+          <p>GPA: 8.94 / 10 | <strong>Ranked 5th overall</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Achievements -->
+    <section>
+      <h2>🏅 Academic Achievements</h2>
       <ul>
-        <li>Springer & Journal of Physics publications in Biomedical Engineering</li>
-        <li>Book chapter on Machine Learning & IoT for OSA</li>
-        <li>Published Patent: Early Detection of Diabetic Foot Ulcer</li>
+        <li>Ranked <strong>5th overall</strong> in Bachelor's program</li>
+        <li><strong>Best Project Award</strong> – Early Detection of Diabetic Foot Ulcer</li>
+        <li>Project funded by <strong>Karnataka State Council for Science and Technology</strong> ("44th Series")</li>
+      </ul>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <h2>📜 Certifications</h2>
+      <ul>
+        <li>Coursera – <strong>Databases and SQL for Data Science</strong> (IBM)</li>
+        <li>Coursera – <strong>Machine Learning for All</strong> (University of London)</li>
       </ul>
     </section>
 
     <footer>
-      © 2026 Reeth Nalamitha · Open to Research & Industry Roles
+      <p>© 2026 Reeth Nalamitha · Available for Medical AI, Imaging, and Research Roles</p>
+      <p style="margin-top: 10px; font-size: 0.9rem;">Built with passion for healthcare innovation 💙</p>
     </footer>
   </div>
+
+  <script>
+    // Generate animated particles
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 8 + 's';
+      particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      particlesContainer.appendChild(particle);
+    }
+
+    // Smooth scroll reveal animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Save dark mode preference
+    const toggle = document.querySelector('.toggle');
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      document.body.classList.add('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      if (document.body.classList.contains('dark')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
 </body>
 </html>
